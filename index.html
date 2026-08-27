@@ -35,7 +35,7 @@ tr:hover td{background:#f8fafc}
 .bar-fill{height:100%;border-radius:4px}
 #map{height:470px;border-radius:9px;border:1px solid #e2e8f0;background:#f8fafc}
 /* 地図タイルの色を抜く。データの色（増減率）だけを見せるため */
-#map .leaflet-tile-pane{filter:grayscale(1) brightness(1.07) contrast(.88);opacity:.85}
+#map .leaflet-tile-pane{filter:grayscale(.9) brightness(1.02);opacity:1}
 .legend{display:flex;gap:15px;flex-wrap:wrap;margin-top:11px;font-size:10.5px;color:#475569}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle}
 .note{background:#fffbeb;border-left:4px solid #f59e0b;padding:12px 14px;font-size:11.5px;color:#451a03;line-height:1.85;margin-top:12px;border-radius:0 7px 7px 0}
@@ -114,9 +114,11 @@ footer{margin-top:34px;padding:16px 18px;background:#fff;border:1px solid #e2e8f
 .lb-t td:first-child{text-align:left}
 .lb-t tr.hi td{background:#fff8ec;font-weight:600}
 .lb-t tr.dim td{color:#94a3b8}
+.lb-t tr.fc td{background:#f5f8fd;color:#2b6cb0;font-style:italic}
 .lb-neg{color:#dc2626}.lb-pos{color:#059669}
 .lb-sub{font-size:12.5px;font-weight:700;color:#14356b;margin:22px 0 9px;padding-left:9px;border-left:3px solid #2b6cb0}
 .lb-f{padding:12px 22px;background:#fafbfd;border-top:1px solid #e9eef5;font-size:10.5px;color:#718096;line-height:1.75}
+.lb-n{font-size:10px;color:#8b98a9;line-height:1.7;margin:2px 0 14px;padding-left:1px}
 @media(max-width:700px){.lb-t{font-size:10px}.lb-b{padding:14px}}
 
 /* ── カーソル追従（レーザーポインター） ──
@@ -486,40 +488,44 @@ footer{margin-top:34px;padding:16px 18px;background:#fff;border:1px solid #e2e8f
 <div class="lb-g">
 <div class="lb-c"><i>在留外国人 2025年末</i><b>412.5<small>万人</small></b><s>前年比 +9.5%／初の400万人超</s></div>
 <div class="lb-c"><i>直近3年の年平均増加</i><b class="pos">+35.0<small>万人</small></b><s>2023→2025年の実績</s></div>
-<div class="lb-c"><i>日本の生産年齢人口</i><b class="neg">-56<small>万人</small></b><s>年あたり／社人研推計</s></div>
-<div class="lb-c"><i>差し引き</i><b class="neg">-21<small>万人</small></b><s>外国人の増加でも埋まらない</s></div>
+<div class="lb-c"><i>日本の生産年齢人口</i><b class="neg">−56<small>万人</small></b><s>年あたり／社人研推計</s></div>
+<div class="lb-c"><i>差し引き</i><b class="neg">−21<small>万人</small></b><s>外国人の増加でも埋まらない</s></div>
 </div>
 <table class="lb-t">
 <tr><th>年末</th><th>在留外国人数</th><th>前年からの増減</th><th>増減率</th></tr>
-<tr><td>2020年</td><td>2,887,116</td><td>—</td><td>—</td></tr>
-<tr class="dim"><td>2021年</td><td>2,760,635</td><td class="lb-neg">-126,481</td><td class="lb-neg">-4.4%</td></tr>
-<tr><td>2022年</td><td>3,075,213</td><td class="lb-pos">+314,578</td><td class="lb-pos">+11.4%</td></tr>
 <tr><td>2023年</td><td>3,410,992</td><td class="lb-pos">+335,779</td><td class="lb-pos">+10.9%</td></tr>
 <tr><td>2024年</td><td>3,768,977</td><td class="lb-pos">+357,985</td><td class="lb-pos">+10.5%</td></tr>
 <tr class="hi"><td>2025年</td><td>4,125,395</td><td class="lb-pos">+356,418</td><td class="lb-pos">+9.5%</td></tr>
+<tr class="fc"><td>2026年（推計）</td><td>約4,475,000</td><td class="lb-pos">+350,000</td><td class="lb-pos">+8.5%</td></tr>
 </table>
+<p class="lb-n">2025年までは出入国在留管理庁の実数。2026年は直近3年の年平均増加（+350,061人）をそのまま足した機械的な推計で、予測ではない。直近の伸び率9.5%が続く前提なら約452万人になる。いずれにしても、生産年齢人口の年56万人減には届かない。</p>
 
 <div class="lb-sub">② 入ってきているのは高度人材ではない</div>
-<p>在留資格の内訳を見ると、高度専門職は全体の0.8%にとどまる。一方で技能実習と特定技能を合わせると約79万人、全体の20%を占める。受け入れを広げたのは単純労働の分野であり、高度人材の獲得は進んでいない。</p>
+<p>在留資格の内訳を見ると、高度専門職は全体の0.80%にとどまる。一方で技能実習と特定技能を合わせると846,914人、全体の20.5%を占める。受け入れを広げたのは単純労働の分野であり、高度人材の獲得は進んでいない。</p>
 <table class="lb-t">
-<tr><th>在留資格</th><th>人数</th><th>構成比</th></tr>
-<tr><td>永住者</td><td>947,125</td><td>23.6%</td></tr>
-<tr><td>技術・人文知識・国際業務</td><td>475,790</td><td>11.6%</td></tr>
-<tr><td>留学</td><td>464,784</td><td>11.0%</td></tr>
-<tr><td>技能実習</td><td>449,432</td><td>11.4%</td></tr>
-<tr><td>特定技能</td><td>336,196</td><td>8.5%</td></tr>
-<tr class="hi"><td>高度専門職</td><td>32,953</td><td>0.8%</td></tr>
+<tr><th>在留資格（2025年末）</th><th>人数</th><th>構成比</th></tr>
+<tr><td>永住者</td><td>947,125</td><td>22.96%</td></tr>
+<tr><td>技術・人文知識・国際業務</td><td>475,790</td><td>11.53%</td></tr>
+<tr><td>留学</td><td>464,784</td><td>11.27%</td></tr>
+<tr><td>技能実習（合計）</td><td>456,618</td><td>11.07%</td></tr>
+<tr><td>特定技能（合計）</td><td>390,296</td><td>9.46%</td></tr>
+<tr><td>家族滞在</td><td>352,875</td><td>8.55%</td></tr>
+<tr><td>特別永住者</td><td>266,896</td><td>6.47%</td></tr>
+<tr class="hi"><td>高度専門職（合計）</td><td>32,953</td><td>0.80%</td></tr>
 </table>
-<p>OECD諸国が受け入れた高度人材（大卒以上）の規模で比べると、日本の位置がはっきりする。学術研究では、日本は流入より流出が多い「人材流出国」と分類されている。平均賃金はOECD38か国中25位で、韓国を下回る。</p>
+<p class="lb-n">総数4,125,395人に対する構成比。e-Stat 在留外国人統計 統計表 0004019020「国籍・地域別 在留資格別 在留外国人」2025年12月時点の実数から算出。</p>
+<p>この構図は今に始まったものではない。OECD諸国に居住する大卒以上の高度人材の分布を見ると、日本の位置は20年以上前から変わっていない。</p>
 <table class="lb-t">
-<tr><th>国</th><th>高度人材の受け入れ規模</th><th>備考</th></tr>
+<tr><th>国（2001年時点）</th><th>高度人材の受け入れ規模</th><th>備考</th></tr>
 <tr class="hi"><td>アメリカ</td><td>10,400,000</td><td>OECD域内の高度人材の50%超が集中</td></tr>
 <tr><td>カナダ</td><td>2,724,095</td><td></td></tr>
 <tr><td>オーストラリア</td><td>1,638,052</td><td></td></tr>
 <tr><td>イギリス</td><td>1,233,421</td><td></td></tr>
-<tr><td>ドイツ</td><td>1,000,000</td><td>非英語圏で最大</td></tr>
+<tr><td>ドイツ</td><td>約1,000,000</td><td>非英語圏で最大</td></tr>
 <tr><td>日本</td><td>260,000</td><td>アメリカの約40分の1</td></tr>
 </table>
+<p class="lb-n">Boeri et al.『Brain Drain and Brain Gain』p.44 表2.3 の2001年時点データ。同書で日本は、OECD諸国から流入する高度人材より、OECD諸国へ流出する高度人材のほうが多い「人材流出国」に分類されている。25年前の数字であり、現在値ではない。</p>
+<p>直近のOECD『国際移民アウトルック2025』では、日本の2024年の新規受け入れは17万7千人（前年比+8.6%）で、内訳は労働移住63%、家族呼び寄せ34%、人道移住1%。同じ年に日本からOECD諸国へ移住したのは2万2千人で、主な移住先はドイツ・アメリカ・オランダだった。</p>
 
 <div class="lb-sub">③ 2027年4月、永住の要件が変わる</div>
 <p>受け入れが増える一方で、定着の条件は厳しくなる。改正入管法とガイドライン改定により、2027年4月から次の内容が適用される。</p>
@@ -535,43 +541,57 @@ footer{margin-top:34px;padding:16px 18px;background:#fff;border:1px solid #e2e8f
 <p>ここで見るべきは<b>支給額（額面）</b>であって、手取りではない。課税対象所得から給与所得控除を逆算した額面年収は、北上市456万円、千歳市483万円、菊陽町539万円、東広島市514万円。年収要件が日本人世帯の平均を基準とする場合、拠点によって届く／届かないが分かれる。</p>
 <p>ただし同じ額面でも、手取りは以前より薄い。厚生年金の保険料率は2004年10月の13.934%から毎年0.354%ずつ引き上げられ、2017年度以降は<b>18.3%（労使折半・本人9.15%）</b>で固定された。本人負担は6.967%から9.15%へ、2.18ポイント増えている。健康保険料率・介護保険料率も上がっている。額面が同じなら、手取りは確実に減る。</p>
 
-<div class="lb-sub">④ 製造業は動きにくい。だから一度離れると戻らない</div>
+<div class="lb-sub">④ 製造業は、入る人より出る人が多い</div>
 <div class="lb-g">
-<div class="lb-c"><i>製造業 入職率</i><b>5.2%</b><s>全産業 7.6%</s></div>
-<div class="lb-c"><i>製造業 離職率</i><b>4.9%</b><s>全産業 6.8%</s></div>
-<div class="lb-c"><i>製造業 欠員率</i><b>2.2%</b><s>全産業 2.9%／建設業 5.4%</s></div>
-<div class="lb-c"><i>転職で賃金が増えた人</i><b class="pos">40.5%</b><s>減った人 29.4%</s></div>
+<div class="lb-c"><i>製造業 入職率</i><b>8.3<small>%</small></b><s>産業計 11.8%</s></div>
+<div class="lb-c"><i>製造業 離職率</i><b>8.8<small>%</small></b><s>産業計 11.5%</s></div>
+<div class="lb-c"><i>製造業 入職超過率</i><b class="neg">−0.5<small>pt</small></b><s>産業計 +0.3pt</s></div>
+<div class="lb-c"><i>転職で賃金が増えた人</i><b class="pos">40.5<small>%</small></b><s>減った人 29.4%</s></div>
 </div>
-<p>製造業は入職も離職も全産業平均を下回る。人の出入りが少ない業界であり、欠員が出ても埋まりにくい。一方で転職市場では、移った人の4割が賃金を増やしている。条件が見合わなければ移る合理性が働く。</p>
+<p>製造業は入職率も離職率も産業計を下回る。人の出入りが少ない業界である。ところが下の表の主要業種のなかで、<b>入職より離職が多いのは製造業だけ</b>。出入りが少ないうえに、出る側が上回っている。欠員が出ても埋まりにくい構造で、しかも減っている。</p>
 <table class="lb-t">
-<tr><th>産業（一般労働者）</th><th>入職率</th><th>離職率</th><th>差</th></tr>
-<tr><td>宿泊業・飲食サービス業</td><td>12.9%</td><td>10.9%</td><td class="lb-pos">+2.0</td></tr>
-<tr><td>生活関連サービス業・娯楽業</td><td>11.6%</td><td>9.2%</td><td class="lb-pos">+2.4</td></tr>
-<tr><td>医療・福祉</td><td>9.1%</td><td>8.2%</td><td class="lb-pos">+0.9</td></tr>
-<tr><td>産業計</td><td>7.6%</td><td>6.8%</td><td class="lb-pos">+0.8</td></tr>
-<tr><td>情報通信業</td><td>7.4%</td><td>5.5%</td><td class="lb-pos">+1.9</td></tr>
-<tr class="hi"><td>製造業</td><td>5.2%</td><td>4.9%</td><td class="lb-pos">+0.3</td></tr>
-<tr><td>金融業・保険業</td><td>6.0%</td><td>4.3%</td><td class="lb-pos">+1.7</td></tr>
+<tr><th>産業（一般労働者・2024年）</th><th>入職率</th><th>離職率</th><th>入職超過率</th></tr>
+<tr><td>宿泊業，飲食サービス業</td><td>21.2%</td><td>18.1%</td><td class="lb-pos">+3.1</td></tr>
+<tr><td>生活関連サービス業，娯楽業</td><td>17.0%</td><td>16.9%</td><td class="lb-pos">+0.1</td></tr>
+<tr><td>医療，福祉</td><td>13.1%</td><td>13.1%</td><td>0.0</td></tr>
+<tr><td>産業計</td><td>11.8%</td><td>11.5%</td><td class="lb-pos">+0.3</td></tr>
+<tr><td>建設業</td><td>11.7%</td><td>9.7%</td><td class="lb-pos">+2.0</td></tr>
+<tr><td>情報通信業</td><td>11.0%</td><td>9.8%</td><td class="lb-pos">+1.2</td></tr>
+<tr><td>金融業，保険業</td><td>8.4%</td><td>7.4%</td><td class="lb-pos">+1.0</td></tr>
+<tr class="hi"><td>製造業</td><td>8.3%</td><td>8.8%</td><td class="lb-neg">−0.5</td></tr>
 </table>
+<p class="lb-n">厚生労働省 令和6年雇用動向調査 図3-1「産業別入職率・離職率（一般労働者）」。年初の常用労働者数に対する1年間の割合。転職入職者の賃金変動は同調査 表6（増加40.5%・減少29.4%、差11.1ポイント）。</p>
+<p>一方で転職市場では、移った人の4割が賃金を増やしている。減った人は29.4%で、差は11.1ポイント。動きにくい業界にいても、条件が見合わなければ移る合理性は働く。</p>
 
 <div class="lb-sub">⑤ 払える企業と払えない企業が分かれている</div>
-<p>2026年春闘の賃上げ率は全体で5.01%と3年連続の5%台。ただし内訳を見ると、企業規模と労働組合の有無で差が開いている。</p>
+<p>2026年春闘の賃上げ率は全体で5.01%。3年連続の5%台で、3年続けて5%を上回るのは1991年以来35年ぶりになる。ただし<b>この数字が代表しているのは、働く人のごく一部である。</b></p>
 <div class="lb-g">
-<div class="lb-c"><i>ベア実施率　労組あり</i><b>82.1%</b><s>厚労省 2025年調査</s></div>
-<div class="lb-c"><i>ベア実施率　労組なし</i><b class="neg">49.4%</b><s>半分はベアを実施していない</s></div>
-<div class="lb-c"><i>賃上げ率 5%以上</i><b>25.9%</b><s>2026年</s></div>
-<div class="lb-c"><i>賃上げ率 2%未満</i><b class="neg">20.7%</b><s>ほぼ拮抗している</s></div>
+<div class="lb-c"><i>労働組合の推定組織率</i><b class="neg">16.0<small>%</small></b><s>2025年6月30日現在／組合員992.7万人</s></div>
+<div class="lb-c"><i>組合に属していない雇用者</i><b class="neg">84.0<small>%</small></b><s>春闘の集計に入らない</s></div>
+<div class="lb-c"><i>全企業に占める中小企業</i><b>99.7<small>%</small></b><s>大企業は0.3%</s></div>
+<div class="lb-c"><i>連合の最終集計 対象</i><b>5,368<small>組合</small></b><s>全国22,244組合のうち</s></div>
+</div>
+<p>労働組合の推定組織率は16.0%で、1947年の調査開始以来の最低水準を更新し続けている。つまり雇用者の<b>84%は春闘の集計対象ですらない</b>。さらに企業数で見れば99.7%が中小企業で、大企業は0.3%にすぎない。「賃上げ5%」という数字は、組合があり、かつ連合傘下にある企業の平均であって、日本で働く人の平均ではない。</p>
+<p>実際、内訳を見ると企業規模と労働組合の有無で差がはっきり開いている。</p>
+<div class="lb-g">
+<div class="lb-c"><i>2026年春闘 全体</i><b>5.01<small>%</small></b><s>連合 5,368組合の加重平均</s></div>
+<div class="lb-c"><i>1000人以上</i><b>5.06<small>%</small></b><s>月17,359円</s></div>
+<div class="lb-c"><i>99人以下</i><b class="neg">4.26<small>%</small></b><s>月11,124円／大手と6,235円差</s></div>
+<div class="lb-c"><i>労組のない企業が多い調査</i><b class="neg">4.01<small>%</small></b><s>日商・東商 2,260社</s></div>
 </div>
 <table class="lb-t">
-<tr><th>区分</th><th>賃上げ率 2026年</th><th>賃上げ実施（予定）率</th></tr>
-<tr><td>全体</td><td>5.01%</td><td>83.6%</td></tr>
-<tr><td>1000人以上</td><td>5.06%</td><td>大企業 93.8%</td></tr>
-<tr><td>100〜299人</td><td>4.83%</td><td>中小企業 82.3%</td></tr>
-<tr class="hi"><td>99人以下</td><td>4.26%</td><td>—</td></tr>
+<tr><th>区分</th><th>賃上げ率 2026年</th><th>賃上げ額</th></tr>
+<tr><td>全体（連合 5,368組合）</td><td>5.01%</td><td>16,400円</td></tr>
+<tr><td>　1000人以上</td><td>5.06%</td><td>17,359円</td></tr>
+<tr><td>　100〜299人</td><td>4.83%</td><td>13,505円</td></tr>
+<tr class="hi"><td>　99人以下</td><td>4.26%</td><td>11,124円</td></tr>
+<tr><td>中小企業（日商・東商 2,260社）</td><td>4.01%</td><td>11,366円</td></tr>
+<tr><td>　20人以下</td><td>3.38%</td><td>9,170円</td></tr>
+<tr class="hi"><td>　地方の小規模企業</td><td>3.45%</td><td>9,262円</td></tr>
 </table>
-<p>賃上げを続けられるかにも差がある。業績改善を伴わない「防衛的賃上げ」を行った中小企業は60.1%、賃上げ疲れを感じる企業は77.0%、持続的な賃上げの見通しが立たない企業は30.4%。2025年の人手不足倒産は397件で過去最高となり、うち251件（63%）が資本金1000万円未満だった。</p>
-<p>産業別に見ると、賃上げ率5%以上の割合は運輸業40.5%、情報通信業39.6%に対し、製造業は33.6%。動きにくい業界でありながら、賃上げには慎重な傾向が出ている。</p>
-
+<p>連合の集計は労働組合のある企業が対象で、その中小組合の平均は4.69%。一方、労働組合のない企業を多く含む日本商工会議所・東京商工会議所の調査では4.01%、20人以下では3.38%、地方の小規模企業では3.45%まで下がる。<b>組合があるかどうかで、同じ「中小企業の賃上げ」が0.7ポイント違って見える。</b>そして組織率16.0%という前提に立てば、日本の職場の大半は後者に近い。</p>
+<p>定期昇給がある企業では、その分がおおむね2%程度とされる。賃上げ率がそれを差し引いて物価上昇を上回らなければ、実際の生活は改善しない。3%台の層では、その計算が成り立っていない。</p>
+<p>なお実質賃金は、2026年6月時点で前年同月比+1.6%と6か月連続のプラスになっている（毎月勤労統計）。ただしこれは物価上昇が2%弱に落ち着いたことによる面が大きく、食料は依然として+3.5%で上がり続けている。</p>
 <div class="lb-sub">⑥ 住居費は、賃金よりずっと速く上がっている</div>
 <p>賃金の話だけでは足りない。人が急に集まった拠点では、土地と家賃が賃金と比べものにならない速さで上がっている。国土交通省が令和8年地価公示で「特徴的な動きを示した地点」に挙げたのが千歳市である。</p>
 <table class="lb-t">
@@ -583,11 +603,24 @@ footer{margin-top:34px;padding:16px 18px;background:#fff;border:1px solid #e2e8f
 <p>市全体の平均でも同じ方向を向いている。そして、同じ市の所得の伸びと並べると差がはっきりする。</p>
 <div class="lb-g">
 <div class="lb-c"><i>千歳市 公示地価の平均<br>2022年 → 2026年</i><b class="pos">+92.6<small>%</small></b><s>35,781円/㎡ → 68,915円/㎡</s></div>
-<div class="lb-c"><i>千歳市 課税対象所得<br>2019年 → 2024年</i><b>+15.4<small>%</small></b><s>1人あたり・実額</s></div>
+<div class="lb-c"><i>千歳市 課税対象所得<br>2024年 → 2025年（推計）</i><b>+5.0<small>%</small></b><s>実質では +1.9%（北海道CPI 3.1%）</s></div>
 <div class="lb-c"><i>菊陽町 公示地価の平均<br>2023年 → 2026年</i><b class="pos">+43.0<small>%</small></b><s>60,122円/㎡ → 85,978円/㎡</s></div>
-<div class="lb-c"><i>菊陽町 課税対象所得<br>2019年 → 2024年</i><b>+16.6<small>%</small></b><s>1人あたり・実額</s></div>
+<div class="lb-c"><i>菊陽町 課税対象所得<br>2024年 → 2025年（推計）</i><b>+5.1<small>%</small></b><s>実質では +1.7%（熊本CPI 3.3%）</s></div>
 </div>
-<p>4年で地価が9割上がる場所で、所得は5年で15%しか増えていない。人が来ることを見越して先に価格が動くため、賃料は賃金より先に上がる。民間集計では、大津町の単身向け家賃が前年比+36.7%、菊陽町・大津町の平均家賃が熊本市を上回ったとされる（公的統計ではない）。菊陽町の台湾人居住者は2年で23人から398人へ増えている。</p>
+<p>4年で地価が9割上がる場所で、所得は年5%しか増えていない。しかも物価を引いた実質では+1.9%。人が来ることを見越して先に価格が動くため、賃料は賃金より先に上がる。民間集計では、大津町の単身向け家賃が前年比+36.7%、菊陽町・大津町の平均家賃が熊本市を上回ったとされる（公的統計ではない）。菊陽町の台湾人居住者は2年で23人から398人へ増えている。</p>
+<p>そしてもう一つ。物価の中身を見ると、上がっているものが偏っている。</p>
+<table class="lb-t">
+<tr><th>2026年7月 全国（2025年=100）</th><th>指数</th><th>前年同月比</th><th>総合への寄与度</th></tr>
+<tr><td>総合</td><td>102.0</td><td>+1.9%</td><td>—</td></tr>
+<tr class="hi"><td>食料</td><td>103.1</td><td class="lb-neg">+3.5%</td><td>1.70</td></tr>
+<tr><td>　うち生鮮食品</td><td>103.6</td><td class="lb-neg">+7.0%</td><td>0.72</td></tr>
+<tr><td>光熱・水道</td><td>102.7</td><td>+0.7%</td><td>0.05</td></tr>
+<tr><td>　うちエネルギー</td><td>—</td><td>+0.6%</td><td>0.05</td></tr>
+<tr><td>住居</td><td>101.0</td><td>+1.0%</td><td>0.21</td></tr>
+<tr class="dim"><td>　うち家賃</td><td>—</td><td>+0.5%</td><td>0.08</td></tr>
+</table>
+<p>総合の上昇+1.9%のうち、<b>1.70ポイントが食料</b>。上昇のほぼ全部が食べ物である。エネルギーは+0.6%にとどまり、電気代は−0.1%、都市ガス代−1.1%、ガソリン−1.8%と下がっている。品目で見ると緑茶+29.2%、まぐろ+20.4%、トマト+13.5%、ポテトチップス+13.3%、生鮮魚介+12.4%、牛肉（輸入品）+11.0%。毎日買うものほど上がっている。</p>
+<p><b>そして家賃は、全国では+0.5%しか動いていない。</b>民営家賃でも+0.7%。ここに落とし穴がある。全国の家賃が動かないため、拠点で起きている家賃の急騰は、指数のうえでは打ち消されて見えなくなる。</p>
 <p><b>この上昇は、公的な物価統計には映らない。</b>消費者物価指数に市区町村別の区分は存在せず、都道府県単位が最小である。本ページの実質換算も都道府県のCPI（北海道+3.1%、熊本+3.3%、岩手+3.4%）を当てている。拠点で実際に起きている住居費の上昇は、この数字には入っていない。名目の年収だけが統計に残り、暮らしにいくら残るかは統計から消える。</p>
 <p>働く側はそこを見ている。千歳市は<b>10代が+146の転入超過なのに、20代は−237の転出超過</b>。東広島市の20代は−420で、拠点のなかで最大の流出。額面が上がったという話と、そこで暮らせるかという話は別だという判断が、移動の数字に出ている。</p>
 
@@ -597,7 +630,7 @@ footer{margin-top:34px;padding:16px 18px;background:#fff;border:1px solid #e2e8f
 <p>本ページで扱った7市区町村のうち、求人1件あたりの候補者が最も薄いのは菊陽町の113人、最も厚いのは四日市市の782人で、7倍の開きがある。同じ「人手不足」でも、地域によって置かれた状況は異なる。</p>
 </div>
 <div class="lb-f">
-出典：出入国在留管理庁 在留外国人統計（各年末）／永住許可に関するガイドライン（令和8年2月24日改訂）／第2次出入国在留管理基本計画／改正入管法・育成就労制度運用要領／厚生労働省 雇用動向調査（令和6年・令和7年上半期）／同 賃金引上げ等の実態に関する調査（2025年）／連合 2026春季生活闘争 最終回答集計／東京商工リサーチ／日本商工会議所／国土交通省 令和8年地価公示（2026年1月1日時点・2026年3月18日公表、特徴的な動きを示した地点）／同 地価公示の市区町村別平均価格（1995〜2026年）／厚生労働省 社会保障審議会年金部会 資料（厚生年金保険料率の引上げスケジュール）／OECD／Boeri et al. "Brain Drain and Brain Gain"<br>
+出典：出入国在留管理庁 在留外国人統計（各年末・e-Stat 統計表 0004019020）／永住許可に関するガイドライン（令和8年2月24日改訂）／第2次出入国在留管理基本計画／改正入管法・育成就労制度運用要領／厚生労働省 雇用動向調査（令和6年・令和7年上半期）／同 毎月勤労統計調査（令和8年6月分速報）／同 令和7年労働組合基礎調査（2025年12月24日公表）／中小企業庁 中小企業白書／連合 2026春季生活闘争 第7回（最終）回答集計（2026年7月1日集計・7月3日公表）／日本商工会議所・東京商工会議所「中小企業の賃上げ・賃金改定に関する調査」（2026年6月8日公表）／国土交通省 令和8年地価公示（2026年1月1日時点・2026年3月18日公表、特徴的な動きを示した地点）／同 地価公示の市区町村別平均価格（1995〜2026年）／厚生労働省 社会保障審議会年金部会 資料（厚生年金保険料率の引上げスケジュール）／総務省統計局 2025年基準 消費者物価指数 全国 2026年7月分（令和8年8月21日公表）／OECD『国際移民アウトルック2025』／Boeri et al. "Brain Drain and Brain Gain"（2001年時点データ）<br>
 すべて2026年8月27日時点で確認した公表値。制度は施行前のものを含み、今後変更される可能性がある。
 </div>
 </div>
@@ -885,8 +918,8 @@ const glow=L.layerGroup().addTo(map), ring=L.layerGroup().addTo(map), core=L.lay
   const rad=Math.max(6,Math.min(24,Math.sqrt(s.w2020)/26));
   const c=colr(s.r31);
   /* 滲み。地図タイルの上でも色の濃淡が読めるように下に敷く */
-  L.circleMarker([s.lat,s.lng],{radius:rad*1.75,stroke:false,fillColor:c,fillOpacity:.10,interactive:false}).addTo(glow);
-  L.circleMarker([s.lat,s.lng],{radius:rad*1.3,stroke:false,fillColor:c,fillOpacity:.14,interactive:false}).addTo(glow);
+  L.circleMarker([s.lat,s.lng],{radius:rad*1.55,stroke:false,fillColor:c,fillOpacity:.05,interactive:false}).addTo(glow);
+  L.circleMarker([s.lat,s.lng],{radius:rad*1.22,stroke:false,fillColor:c,fillOpacity:.08,interactive:false}).addTo(glow);
   L.circleMarker([s.lat,s.lng],{radius:rad,color:'#fff',weight:2.5,fillColor:c,fillOpacity:.88}).addTo(core)
    .bindPopup(`<b>${s.name}</b>${s.fab==='―'?'':'<br>🏭 '+s.fab}
      <br>生産年齢2020 ${nf(s.w2020)}人
