@@ -80,11 +80,23 @@ footer{margin-top:34px;padding:16px 18px;background:#fff;border:1px solid #e2e8f
 .jbnr-f{padding:11px 20px;background:#fafbfd;border-top:1px solid #e9eef5;font-size:11.5px;color:#718096;line-height:1.7}
 @media(max-width:700px){.jbnr-t{font-size:10.5px}.jbnr-b{padding:12px}}
 .gate2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:16px 0 22px}
-.gate2 a{position:relative;display:block;background:#fff;border:1px solid #e2e8f0;border-radius:10px;
+.gate2 a,.gate2 .soon{position:relative;display:block;background:#fff;border:1px solid #e2e8f0;border-radius:10px;
  padding:22px 24px;overflow:hidden;text-decoration:none;color:inherit;
  transition:transform .3s cubic-bezier(.2,.9,.25,1),box-shadow .3s,border-color .3s}
-.gate2 a::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gc)}
+.gate2 a::after,.gate2 .soon::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gc)}
 .gate2 a:hover{transform:translateY(-3px);border-color:#cbd5e1;box-shadow:0 12px 26px -12px rgba(15,23,42,.22)}
+/* 開発中：リンク先がまだ無いので a にせず、押せないことが見て分かる状態にする */
+.gate2 .soon{background:#fbfcfe;border-style:dashed;cursor:default}
+.gate2 .soon .ic,.gate2 .soon h4,.gate2 .soon .fr,.gate2 .soon p{opacity:.55}
+.gate2 .soon::after{opacity:.45}
+.gate2 .wip{position:absolute;top:14px;right:16px;font-size:9.5px;font-weight:700;letter-spacing:.08em;
+ color:#64748b;background:#eef2f7;border:1px solid #dde4ed;border-radius:999px;padding:3px 9px}
+.gate2 .soon .go{color:#94a3b8;font-weight:600;font-size:11.5px}
+/* 手順が固まっている側は、検討中より一段はっきり見せる */
+.gate2 .soon.s1{background:#fcfdff;border-style:solid;border-color:#dbe6f2}
+.gate2 .soon.s1 .ic,.gate2 .soon.s1 h4,.gate2 .soon.s1 .fr,.gate2 .soon.s1 p{opacity:.78}
+.gate2 .soon.s1::after{opacity:.7}
+.gate2 .wip.w1{color:#0369a1;background:#e0f2fe;border-color:#bae6fd}
 .gate2 .ic{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;font-size:17px;
  background:var(--gt);margin-bottom:13px}
 .gate2 h4{font-size:16px;font-weight:700;margin:0 0 4px;color:#0f172a}
@@ -172,20 +184,22 @@ footer{margin-top:34px;padding:16px 18px;background:#fff;border:1px solid #e2e8f
 </div>
 </header>
 <div class="gate2">
-  <a href="https://kairox.jp/company" style="--gc:#0284c7;--gt:#e0f2fe">
+  <div class="soon s1" style="--gc:#0284c7;--gt:#e0f2fe">
+    <div class="wip w1">実装予定</div>
     <div class="ic">🏢</div>
     <h4>企業を調べる</h4>
     <div class="fr">FOR CANDIDATES</div>
     <p>会社名や法人番号から、厚生年金の被保険者数（実際の社員数）、派遣のマージン率、行政処分の履歴を確認する。</p>
-    <div class="go">検索ツールへ<span>→</span></div>
-  </a>
-  <a href="https://kairox.jp/talent" style="--gc:#f59e0b;--gt:#fef3c7">
+    <div class="go">取得手順は確立済み。実装のみ</div>
+  </div>
+  <div class="soon" style="--gc:#f59e0b;--gt:#fef3c7">
+    <div class="wip">検討中</div>
     <div class="ic">🎯</div>
     <h4>人材を探す</h4>
     <div class="fr">FOR RECRUITERS</div>
     <p>地域や職種から、候補者の母数、求人1件あたりの候補者数、競合の数、賃金水準を確認する。</p>
-    <div class="go">検索ツールへ<span>→</span></div>
-  </a>
+    <div class="go">GitHub・オープンソースからの取得を検討中</div>
+  </div>
 </div>
 
 <div class="jbnr">
