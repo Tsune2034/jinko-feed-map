@@ -114,14 +114,20 @@ footer{margin-top:34px;padding:16px 18px;background:#fff;border:1px solid #e2e8f
 .lb-f{padding:12px 22px;background:#fafbfd;border-top:1px solid #e9eef5;font-size:10.5px;color:#718096;line-height:1.75}
 @media(max-width:700px){.lb-t{font-size:10px}.lb-b{padding:14px}}
 
-/* ── カーソル追従（lerp遅延・ネイティブカーソルは残す） ── */
-.curD{position:fixed;top:0;left:0;width:30px;height:30px;border-radius:50%;
-  border:1.5px solid rgba(20,53,107,.35);background:rgba(43,108,176,.05);
-  z-index:9998;pointer-events:none;will-change:transform;
-  transform:translate(-50%,-50%);
-  transition:width .22s ease,height .22s ease,background .22s ease,border-color .22s ease,opacity .3s}
-.curD.hot{width:52px;height:52px;background:rgba(43,108,176,.13);border-color:rgba(43,108,176,.55)}
-.curD.off{opacity:0}
+/* ── カーソル追従（レーザーポインター） ──
+   サイズ・影は一切アニメーションさせない。transform と opacity だけで動かす。
+   width/height/box-shadow を transition するとレイアウトと再描画が毎フレーム走り、
+   地図や大きい表の上で引っかかる。 */
+.curD{position:fixed;top:0;left:0;width:64px;height:64px;margin:-32px 0 0 -32px;
+  border-radius:50%;pointer-events:none;z-index:2147483646;
+  background:radial-gradient(circle closest-side,
+    #ffffff 0%, #ff8a7a 9%, #f4230f 15%,
+    rgba(244,35,15,.55) 21%, rgba(255,45,32,.20) 42%,
+    rgba(255,45,32,.07) 66%, rgba(255,45,32,0) 100%);
+  opacity:0;transition:opacity .25s ease;
+  will-change:transform;transform:translate3d(-9999px,0,0);
+  contain:layout style paint}
+.curD.on{opacity:1}
 @media(pointer:coarse){.curD{display:none}}
 @media(prefers-reduced-motion:reduce){.curD{display:none}}
 </style></head><body><div class="wrap">
@@ -818,42 +824,52 @@ SITES.forEach(s=>{
 </script>
 
 <script>
-/* カーソル追従：実カーソルを lerp で遅らせて追う輪 */
+/* カーソル追従：レーザーポインターを lerp で少し遅らせて追わせる。
+   位置も大きさも transform だけで表現する（レイアウトを一切起こさない）。 */
 (function(){
-  var coarse = matchMedia('(pointer:coarse)').matches;
-  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(coarse || reduce) return;
+  if (matchMedia('(pointer:coarse)').matches) return;
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
 
   var d = document.createElement('div');
-  d.className = 'curD off';
+  d.className = 'curD';
   document.body.appendChild(d);
 
-  var mx = innerWidth/2, my = innerHeight/2, dx = mx, dy = my, on = false;
-  var lerp = function(a,b,t){ return a + (b-a)*t; };
+  var mx = 0, my = 0, dx = 0, dy = 0;
+  var sc = 0.42, scT = 0.42;          // 通常の大きさ（64px × 0.42 ≒ 27px）
+  var started = false, last = 0;
 
-  addEventListener('pointermove', function(e){
-    mx = e.clientX; my = e.clientY;
-    if(!on){ dx = mx; dy = my; on = true; d.classList.remove('off'); }
-  }, {passive:true});
-  addEventListener('pointerleave', function(){ d.classList.add('off'); });
-  addEventListener('pointerenter', function(){ d.classList.remove('off'); });
+  function move(x, y){
+    mx = x; my = y;
+    if (!started){ dx = x; dy = y; started = true; d.classList.add('on'); }
+  }
+  // pointermove と mousemove の両方をキャプチャ段階で拾う。
+  // Leaflet などが伝播を止めても、キャプチャなら先に届く。
+  var opt = {passive:true, capture:true};
+  addEventListener('pointermove', function(e){ move(e.clientX, e.clientY); }, opt);
+  addEventListener('mousemove',   function(e){ move(e.clientX, e.clientY); }, opt);
+  addEventListener('mouseleave',  function(){ d.classList.remove('on'); });
+  addEventListener('mouseenter',  function(){ if(started) d.classList.add('on'); });
 
-  var HOT = 'a, button, input, select, summary, .lb-c, .card, tr';
-  addEventListener('pointerover', function(e){
+  // 押せるものの上だけ少し大きくする（表の行では反応させない）
+  var HOT = 'a, button, input, select, summary, .leaflet-marker-icon, .leaflet-interactive';
+  addEventListener('mouseover', function(e){
     var t = e.target;
-    if(t && t.closest && t.closest(HOT)) d.classList.add('hot');
-  }, {passive:true});
-  addEventListener('pointerout', function(e){
-    var t = e.target;
-    if(t && t.closest && t.closest(HOT)) d.classList.remove('hot');
-  }, {passive:true});
+    scT = (t && t.closest && t.closest(HOT)) ? 0.72 : 0.42;
+  }, opt);
 
-  (function loop(){
+  function loop(now){
     requestAnimationFrame(loop);
-    dx = lerp(dx, mx, 0.15);
-    dy = lerp(dy, my, 0.15);
-    d.style.transform = 'translate(' + dx + 'px,' + dy + 'px) translate(-50%,-50%)';
-  })();
+    if (!started) return;
+    // フレーム落ちしても速度が変わらないよう経過時間で補正する
+    var dt = last ? Math.min((now - last) / 16.667, 4) : 1;
+    last = now;
+    var k = 1 - Math.pow(1 - 0.22, dt);
+    dx += (mx - dx) * k;
+    dy += (my - dy) * k;
+    sc += (scT - sc) * (1 - Math.pow(1 - 0.18, dt));
+    d.style.transform = 'translate3d(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px,0) scale(' + sc.toFixed(3) + ')';
+  }
+  requestAnimationFrame(loop);
 })();
 </script>
 </body></html>
