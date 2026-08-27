@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>半導体拠点 人材マップ — 誰を採るのか</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%97%BE%3C/text%3E%3C/svg%3E">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f1f5f9; --card:#fff; --line:#e2e8f0;
+  --ink:#0f172a; --sub:#475569; --mute:#64748b;
+  --blue:#0284c7; --sky:#38bdf8; --amber:#f59e0b; --red:#dc2626; --green:#059669;
+  --navy:#1a365d;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);
+  font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;
+  font-size:13px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1300px;margin:0 auto;padding:20px}
+
+/* ── HERO ── */
+.hero{position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(15,23,42,.06);margin-bottom:18px}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;align-items:center;min-height:520px}
+.hero-txt{padding:clamp(28px,4vw,54px)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;letter-spacing:.18em;
+  color:var(--blue);font-weight:600;margin-bottom:18px}
+.eyebrow i{width:5px;height:5px;border-radius:50%;background:var(--blue);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.75)}}
+h1{font-size:clamp(28px,3.6vw,44px);line-height:1.22;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+h1 em{font-style:normal;color:var(--blue)}
+.lead{margin-top:20px;font-size:13.5px;line-height:2;color:var(--sub);max-width:520px}
+.kpis{display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,38px);margin-top:32px;
+  padding-top:26px;border-top:1px solid var(--line)}
+.kpi b{display:block;font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;color:var(--navy)}
+.kpi b.neg{color:var(--red)}
+.kpi s{display:block;font-size:10.5px;color:var(--mute);text-decoration:none;margin-top:4px}
+.hero-vis{position:relative;height:100%;min-height:460px}
+#stage{position:absolute;inset:0;width:100%;height:100%}
+.vis-note{position:absolute;left:16px;bottom:12px;font-size:10px;color:#94a3b8;line-height:1.6}
+
+/* ── DOORS ── */
+.sec{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:clamp(22px,3vw,34px);margin-bottom:18px;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+.sec-lab{font-size:10.5px;letter-spacing:.16em;color:var(--blue);font-weight:600;margin-bottom:9px}
+.sec-h{font-size:21px;font-weight:700;letter-spacing:.01em;margin-bottom:11px}
+.sec-p{color:var(--sub);font-size:13px;line-height:1.95;max-width:700px}
+.doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-top:26px}
+.door{position:relative;padding:26px 24px;border:1px solid var(--line);border-radius:10px;
+  background:linear-gradient(160deg,#fbfdff,#fff);overflow:hidden;
+  transition:transform .32s cubic-bezier(.2,.9,.25,1),box-shadow .32s,border-color .32s}
+.door::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--acc)}
+.door:hover{transform:translateY(-4px);border-color:#cbd5e1;box-shadow:0 14px 30px -14px rgba(15,23,42,.24)}
+.door-i{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;font-size:18px;
+  background:var(--tint);margin-bottom:16px}
+.door h3{font-size:17px;font-weight:700;margin-bottom:5px}
+.door .for{font-size:10px;letter-spacing:.14em;font-weight:600;color:var(--acc);margin-bottom:14px}
+.door p{font-size:12.5px;line-height:1.9;color:var(--sub)}
+.door ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:7px}
+.door li{font-size:12px;color:var(--sub);padding-left:15px;position:relative}
+.door li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--acc)}
+.door .go{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:12.5px;
+  font-weight:600;color:var(--acc)}
+.door .go span{transition:transform .3s}
+.door:hover .go span{transform:translateX(5px)}
+
+/* ── TABLE ── */
+.tw{margin-top:22px;overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:12px;min-width:780px;background:#fff}
+th{background:#f8fafc;color:var(--navy);font-weight:600;padding:11px 12px;text-align:right;
+  white-space:nowrap;border-bottom:1px solid var(--line);font-size:11px}
+th:first-child,th:nth-child(2){text-align:left}
+td{padding:11px 12px;text-align:right;border-bottom:1px solid #f1f5f9;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+td:first-child,td:nth-child(2){text-align:left}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:#f0f9ff}
+tbody tr:last-child td{border-bottom:none}
+.hot{color:var(--red);font-weight:700}
+.warm{color:#ea580c;font-weight:600}
+.cool{color:var(--green)}
+.bar{position:relative;height:5px;border-radius:3px;background:#e2e8f0;min-width:60px;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;border-radius:3px;width:0;
+  background:linear-gradient(90deg,var(--red),var(--amber));transition:width 1s cubic-bezier(.2,.9,.25,1)}
+.note{margin-top:16px;font-size:10.5px;color:var(--mute);line-height:1.8;
+  padding-top:12px;border-top:1px solid #f1f5f9}
+footer{padding:20px 4px 40px;font-size:10.5px;color:var(--mute);line-height:1.85}
+footer b{color:var(--sub)}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-vis{min-height:340px;order:-1}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-txt">
+      <div class="eyebrow"><i></i>SEMICONDUCTOR TALENT MAP　2020–2031</div>
+      <h1>人が減る場所で、<br><em>誰を採るのか。</em></h1>
+      <p class="lead">半導体拠点のある7市区町村について、公的統計と公開求人を突き合わせた。
+        求人1件あたりに何人の候補者がいるか。誰が募集を出しているか。数字はすべて一次情報から取っている。</p>
+      <div class="kpis">
+        <div class="kpi"><b class="neg" id="k1">—</b><s>生産年齢人口の減少 2020→2031</s></div>
+        <div class="kpi"><b id="k2">—</b><s>公開求人（2026-08-27 取得）</s></div>
+        <div class="kpi"><b id="k3">—</b><s>最も薄い地域の候補者／求人</s></div>
+      </div>
+    </div>
+    <div class="hero-vis">
+      <canvas id="stage"></canvas>
+      <div class="vis-note">半導体拠点7か所。柱の高さは求人1件あたりの候補者数の薄さを表す<br>
+        沖縄県（別枠）は現時点で対象地域に含まれないが、同じ手法で分析できる</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-lab">TWO ENTRANCES</div>
+  <h2 class="sec-h">入口は2つ</h2>
+  <p class="sec-p">同じデータでも、探すものが違えば見る場所が変わる。会社を調べたいのか、人を探したいのかで進む先が分かれる。</p>
+  <div class="doors">
+    <a class="door" href="/company" style="--acc:var(--blue);--tint:#e0f2fe">
+      <div class="door-i">🏢</div>
+      <h3>企業を調べる</h3>
+      <div class="for">FOR CANDIDATES</div>
+      <p>公表されている従業員数と、国に届け出た数字は一致しないことがある。公的データベースで会社の実態を確認する。</p>
+      <ul>
+        <li>厚生年金の被保険者数＝事業所ごとの実社員数</li>
+        <li>派遣のマージン率・派遣料金・賃金</li>
+        <li>行政処分の履歴／労使協定の締結</li>
+        <li>法人番号から横断照会</li>
+      </ul>
+      <div class="go">調べ方を見る<span>→</span></div>
+    </a>
+    <a class="door" href="/talent" style="--acc:var(--amber);--tint:#fef3c7">
+      <div class="door-i">🎯</div>
+      <h3>人材を探す</h3>
+      <div class="for">FOR RECRUITERS</div>
+      <p>どの地域に、どれだけの母数があるのか。媒体で届く層と、実際にいる層の差を数字で押さえる。</p>
+      <ul>
+        <li>求人1件あたりの候補者数＝採用難易度</li>
+        <li>派遣会社と事業会社の比率</li>
+        <li>地域別の賃金水準と年齢層の動き</li>
+        <li>媒体でリーチできる割合</li>
+      </ul>
+      <div class="go">母数を見る<span>→</span></div>
+    </a>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-lab">DIFFICULTY</div>
+  <h2 class="sec-h">採りにくい順</h2>
+  <p class="sec-p">求人1件あたりに何人の製造業従業者がいるか。数が小さいほど取り合いになる。</p>
+  <div class="tw">
+    <table>
+      <thead><tr>
+        <th>市区町村</th><th>拠点</th><th>求人</th><th>候補者／求人</th>
+        <th>逼迫度</th><th>派遣率</th><th>製造業賃金</th><th>20代 転入超過</th>
+      </tr></thead>
+      <tbody id="tb"><tr><td colspan="8" style="text-align:center;color:#94a3b8;padding:28px">読み込み中…</td></tr></tbody>
+    </table>
+  </div>
+  <p class="note">候補者数は経済センサスの製造業従業者数、求人は Indeed の公開求人（2026-08-27 取得・278件）。
+    派遣率は求人のうち派遣・請負と判断される事業者が占める割合。</p>
+</section>
+
+<footer>
+  <b>出典</b>　国勢調査 人口等基本集計（e-Stat 0003445162）／住民基本台帳人口移動報告（0004044330 ほか）／
+  市区町村データ 基礎データ（0000020103）／国立社会保障・人口問題研究所『日本の地域別将来推計人口』令和5(2023)年推計／
+  経済センサス／Indeed 公開求人<br>
+  <b>注意</b>　求人件数は取得時点のもので掲載期間により変動する。個人を特定する情報は一切保持していない。
+</footer>
+
+</div>
+
+<script>
+/* ═══ 地図を3Dで浮かせ、正しい7拠点に光柱を立てる ═══ */
+(function(){
+  const cv = document.getElementById('stage');
+  const ctx = cv.getContext('2d');
+  const img = new Image();
+  let ready = false;
+  img.onload = ()=>{ ready = true; };
+  img.src = '/img/japan@1800.png';
+
+  /* 画像内の相対座標（0-1）。左下の沖縄枠は除く */
+  const SITES = [
+    {x:.722, y:.188, name:'千歳市',   c:'#0284c7', h:1.00},
+    {x:.738, y:.449, name:'北上市',   c:'#0284c7', h:0.62},
+    {x:.543, y:.700, name:'四日市市', c:'#0284c7', h:0.30},
+    {x:.393, y:.639, name:'東広島市', c:'#0284c7', h:0.32},
+    {x:.283, y:.786, name:'菊陽町',   c:'#f59e0b', h:1.00},
+    {x:.291, y:.789, name:'合志市',   c:'#f59e0b', h:0.92},
+    {x:.299, y:.792, name:'大津町',   c:'#f59e0b', h:0.84},
+  ];
+
+  let W=0,H=0,DPR=1;
+  function resize(){
+    DPR = Math.min(window.devicePixelRatio||1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W*DPR; cv.height = H*DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+  window.addEventListener('resize', resize); resize();
+
+  let mx=0,my=0,tx=0,ty=0;
+  cv.addEventListener('mousemove', e=>{
+    const r = cv.getBoundingClientRect();
+    tx = ((e.clientX-r.left)/r.width - .5);
+    ty = ((e.clientY-r.top)/r.height - .5);
+  }, {passive:true});
+  cv.addEventListener('mouseleave', ()=>{ tx=0; ty=0; });
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const t0 = performance.now();
+
+  function draw(now){
+    const t = (now - t0)/1000;
+    mx += (tx-mx)*.06; my += (ty-my)*.06;
+    ctx.clearRect(0,0,W,H);
+    if(!ready){ requestAnimationFrame(draw); return; }
+
+    /* 地図を配置（傾き＋ゆっくり浮遊） */
+    const float = reduce ? 0 : Math.sin(t*.55)*4;
+    const scale = Math.min(W/img.width, H/img.height) * 1.06;
+    const dw = img.width*scale, dh = img.height*scale;
+    const ox = (W-dw)/2 + mx*22;
+    const oy = (H-dh)/2 + my*14 + float;
+
+    ctx.save();
+    ctx.globalAlpha = .96;
+    ctx.drawImage(img, ox, oy, dw, dh);
+    ctx.restore();
+
+    /* 光柱を上書きで描く（画像の柱の上に重ねる） */
+    SITES.forEach((s,i)=>{
+      const px = ox + s.x*dw;
+      const py = oy + s.y*dh;
+      const breathe = reduce ? 1 : (1 + Math.sin(t*1.5 + i*.9)*.10);
+      const len = dh * .22 * s.h * breathe;
+
+      /* 柱 */
+      const g = ctx.createLinearGradient(px, py, px, py-len);
+      g.addColorStop(0, s.c);
+      g.addColorStop(.55, s.c + 'aa');
+      g.addColorStop(1, s.c + '00');
+      ctx.save();
+      ctx.strokeStyle = g;
+      ctx.lineWidth = Math.max(2.2, dw*.0042);
+      ctx.lineCap = 'round';
+      ctx.shadowColor = s.c; ctx.shadowBlur = 12;
+      ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py-len); ctx.stroke();
+      ctx.restore();
+
+      /* 根元の光点 */
+      const r = Math.max(3, dw*.0052) * breathe;
+      ctx.save();
+      ctx.shadowColor = s.c; ctx.shadowBlur = 16;
+      ctx.fillStyle = s.c;
+      ctx.beginPath(); ctx.arc(px, py, r, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#fff';
+      ctx.beginPath(); ctx.arc(px, py, r*.42, 0, Math.PI*2); ctx.fill();
+      ctx.restore();
+
+      /* 広がる波紋 */
+      if(!reduce){
+        const ph = ((t*.45 + i*.28) % 1);
+        ctx.save();
+        ctx.strokeStyle = s.c;
+        ctx.globalAlpha = (1-ph)*.42;
+        ctx.lineWidth = 1.3;
+        ctx.beginPath(); ctx.arc(px, py, r + ph*dw*.035, 0, Math.PI*2); ctx.stroke();
+        ctx.restore();
+      }
+    });
+
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+/* ═══ カウントアップ ═══ */
+function count(el, to, dur, fmt){
+  const t0 = performance.now();
+  (function step(now){
+    const p = Math.min((now-t0)/dur, 1);
+    el.textContent = fmt(to*(1-Math.pow(1-p,3)));
+    if(p<1) requestAnimationFrame(step);
+  })(t0);
+}
+
+fetch('/api/difficulty').then(r=>r.json()).then(rows=>{
+  const jobs = rows.reduce((s,r)=>s+r.jobs,0);
+  const min  = Math.min(...rows.map(r=>r.pool_per_job));
+  count(document.getElementById('k1'), 616, 1500, v=>'-'+Math.round(v).toLocaleString()+' 万人');
+  count(document.getElementById('k2'), jobs, 1200, v=>Math.round(v).toLocaleString()+' 件');
+  count(document.getElementById('k3'), min, 1400, v=>Math.round(v).toLocaleString()+' 人');
+
+  const max = Math.max(...rows.map(r=>r.pool_per_job));
+  document.getElementById('tb').innerHTML = rows.map(r=>{
+    const cls = r.pool_per_job<200 ? 'hot' : r.pool_per_job<500 ? 'warm' : 'cool';
+    const w = Math.round((1 - r.pool_per_job/max)*100);
+    const a20 = r.a20>0 ? `<span class="cool">+${r.a20}</span>` : `<span class="hot">${r.a20}</span>`;
+    return `<tr><td><b>${r.name}</b></td><td style="color:#64748b">${r.fab}</td>
+      <td>${r.jobs}</td><td class="${cls}">${r.pool_per_job.toLocaleString()} 人</td>
+      <td><div class="bar"><i data-w="${w}"></i></div></td>
+      <td>${r.agency_rate}%</td><td>${(r.wage_mfg/10000).toFixed(0)} 万円</td><td>${a20}</td></tr>`;
+  }).join('');
+  requestAnimationFrame(()=>{
+    document.querySelectorAll('.bar i').forEach((el,i)=>
+      setTimeout(()=>{ el.style.width = el.dataset.w+'%'; }, 80*i));
+  });
+}).catch(()=>{
+  document.getElementById('tb').innerHTML =
+    '<tr><td colspan="8" style="text-align:center;color:#94a3b8;padding:28px">データを取得できませんでした</td></tr>';
+});
+</script>
+</body>
+</html>

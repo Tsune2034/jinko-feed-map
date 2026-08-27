@@ -1,0 +1,765 @@
+{
+ "foreign": [
+  {
+   "year": 2020,
+   "total": 2887116,
+   "yoy": null,
+   "yoy_pct": null,
+   "source": "出入国在留管理庁 在留外国人統計 第1図",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2021,
+   "total": 2760635,
+   "yoy": -126481,
+   "yoy_pct": -4.4,
+   "source": "出入国在留管理庁 在留外国人統計 第1図",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2022,
+   "total": 3075213,
+   "yoy": 314578,
+   "yoy_pct": 11.4,
+   "source": "出入国在留管理庁 在留外国人統計 第1図",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2023,
+   "total": 3410992,
+   "yoy": 335779,
+   "yoy_pct": 10.9,
+   "source": "出入国在留管理庁 在留外国人統計 第1図",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "total": 3768977,
+   "yoy": 357985,
+   "yoy_pct": 10.5,
+   "source": "出入国在留管理庁 在留外国人統計 第1図",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "total": 4125395,
+   "yoy": 356418,
+   "yoy_pct": 9.5,
+   "source": "出入国在留管理庁 在留外国人統計 第1図",
+   "taken_at": "2026-08-27"
+  }
+ ],
+ "visa": [
+  {
+   "year": 2025,
+   "status": "永住者",
+   "total": 947125,
+   "share": 23.6,
+   "category": "身分",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "status": "技術・人文知識・国際業務",
+   "total": 475790,
+   "share": 11.6,
+   "category": "就労",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "status": "留学",
+   "total": 464784,
+   "share": 11.0,
+   "category": "留学",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "status": "技能実習",
+   "total": 449432,
+   "share": 11.4,
+   "category": "育成",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "status": "家族滞在",
+   "total": 352875,
+   "share": 8.6,
+   "category": "身分",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "status": "特定技能",
+   "total": 336196,
+   "share": 8.5,
+   "category": "育成",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "status": "特別永住者",
+   "total": 266896,
+   "share": 6.5,
+   "category": "身分",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "status": "定住者",
+   "total": 226438,
+   "share": 5.5,
+   "category": "身分",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "status": "日本人の配偶者等",
+   "total": 152898,
+   "share": 3.7,
+   "category": "身分",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "status": "特定活動",
+   "total": 125286,
+   "share": 3.0,
+   "category": "その他",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "status": "高度専門職",
+   "total": 32953,
+   "share": 0.8,
+   "category": "高度",
+   "taken_at": "2026-08-27"
+  }
+ ],
+ "intl": [
+  {
+   "country": "アメリカ",
+   "highly_skilled": 10400000,
+   "note": "OECD域内の高度人材の50%超が集中",
+   "source": "Boeri et al. Brain Drain and Brain Gain",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "country": "カナダ",
+   "highly_skilled": 2724095,
+   "note": "",
+   "source": "同左",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "country": "オーストラリア",
+   "highly_skilled": 1638052,
+   "note": "",
+   "source": "同左",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "country": "イギリス",
+   "highly_skilled": 1233421,
+   "note": "",
+   "source": "同左",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "country": "ドイツ",
+   "highly_skilled": 1000000,
+   "note": "非英語圏で最大",
+   "source": "同左",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "country": "フランス",
+   "highly_skilled": 600000,
+   "note": "",
+   "source": "同左",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "country": "日本",
+   "highly_skilled": 260000,
+   "note": "人口規模に比して小規模。流入より流出が多い人材流出国",
+   "source": "同左",
+   "taken_at": "2026-08-27"
+  }
+ ],
+ "policy": [
+  {
+   "id": 1,
+   "category": "永住許可",
+   "title": "独立生計要件に年収基準を新設",
+   "effective": "2027年4月",
+   "detail": "原則として日本人世帯の平均年収以上を求める。将来の生活保護受給につながらないよう、日本人世帯の平均以上の年金受給見込み額なども求める。2026年10月にもガイドラインを改定。",
+   "source": "出入国在留管理庁（2026-08-04 発表）",
+   "url": "https://www.nikkei.com/article/DGXZQOUA035500T00C26A8000000",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "id": 2,
+   "category": "永住許可",
+   "title": "国益要件の明確化",
+   "effective": "2027年4月",
+   "detail": "「積極的かつ具体的に当該外国人の永住が日本国に利益をもたらす必要がある」と明記。税金・社会保険料の未払い、法令違反、日本の制度の理解が乏しい場合は原則として審査で消極評価。",
+   "source": "出入国在留管理庁",
+   "url": "https://www.moj.go.jp/isa/applications/resources/nyukan_nyukan50.html",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "id": 3,
+   "category": "永住許可",
+   "title": "配偶者特例の期間延長",
+   "effective": "2027年4月",
+   "detail": "日本人・永住者の配偶者について、従来の「婚姻3年かつ在留1年」を「婚姻5年かつ在留3年」に延長。",
+   "source": "出入国在留管理庁",
+   "url": "https://www.nikkei.com/article/DGXZQOUA035500T00C26A8000000",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "id": 4,
+   "category": "永住許可",
+   "title": "在留期間要件の厳格化",
+   "effective": "2027年4月1日",
+   "detail": "在留期間「3年」を「最長の在留期間」とみなす経過措置を令和9年3月31日で終了。以後は本来の最長期間（5年）が必要。",
+   "source": "出入国在留管理庁 永住許可ガイドライン（令和8年2月24日改訂）",
+   "url": "https://www.moj.go.jp/isa/applications/resources/nyukan_nyukan50.html",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "id": 5,
+   "category": "永住許可",
+   "title": "永住資格の取消し制度",
+   "effective": "2027年4月",
+   "detail": "入管法上の義務違反、故意に公租公課（税・社会保険料）を支払わない、特定の刑罰法令違反の3つを取消事由に追加。取消しガイドラインも新設。",
+   "source": "改正入管法（2024年6月14日成立）",
+   "url": "https://www.moj.go.jp/isa/",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "id": 6,
+   "category": "永住許可",
+   "title": "日本語能力・制度学習の条件化",
+   "effective": "検討中",
+   "detail": "第2次出入国在留管理基本計画（2026-07-31公表）で、一定水準以上の日本語能力と日本の制度を学ぶプログラムの受講を許可の条件とする方針を明記。",
+   "source": "出入国在留管理庁 第2次出入国在留管理基本計画",
+   "url": "https://www.nikkei.com/article/DGXZQOUA2969D0Z20C26A7000000",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "id": 7,
+   "category": "手数料",
+   "title": "在留手数料の大幅値上げ",
+   "effective": "2026年以降",
+   "detail": "永住許可20万円、在留資格更新は最大7万5000円へ引き上げ。改正入管法は2026年5月29日成立。",
+   "source": "改正入管法（2026-05-29 成立）",
+   "url": "https://www.nikkei.com/",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "id": 8,
+   "category": "就労制度",
+   "title": "技能実習の廃止と育成就労の創設",
+   "effective": "2027年4月1日",
+   "detail": "技能実習制度を廃止し育成就労制度を創設。在留期間は原則3年、特定技能1号の水準まで育成。同一機関で1〜2年就労し要件を満たせば本人意向による転籍が可能。育成就労産業分野は17分野（航空・自動車運送業を除く）。",
+   "source": "改正入管法／育成就労制度運用要領（2026-02-20公表、2026-04-06一部改正）",
+   "url": "https://www.moj.go.jp/isa/",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "id": 9,
+   "category": "就労制度",
+   "title": "不法就労助長罪の厳罰化",
+   "effective": "施行済",
+   "detail": "拘禁刑3年以下または罰金300万円以下 → 拘禁刑5年以下または罰金500万円以下（併科可）。",
+   "source": "改正入管法",
+   "url": "https://www.moj.go.jp/isa/",
+   "taken_at": "2026-08-27"
+  }
+ ],
+ "turnover": [
+  {
+   "period": "令和6年上半期",
+   "industry": "宿泊業・飲食サービス業",
+   "worker_type": "一般労働者",
+   "entry_rate": 12.9,
+   "exit_rate": 10.9,
+   "net": 2.0,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和6年上半期",
+   "industry": "生活関連サービス業・娯楽業",
+   "worker_type": "一般労働者",
+   "entry_rate": 11.6,
+   "exit_rate": 9.2,
+   "net": 2.4,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和6年上半期",
+   "industry": "医療・福祉",
+   "worker_type": "一般労働者",
+   "entry_rate": 9.1,
+   "exit_rate": 8.2,
+   "net": 0.9,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和6年上半期",
+   "industry": "産業計",
+   "worker_type": "一般労働者",
+   "entry_rate": 7.6,
+   "exit_rate": 6.8,
+   "net": 0.8,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和6年上半期",
+   "industry": "学術研究・専門技術",
+   "worker_type": "一般労働者",
+   "entry_rate": 8.0,
+   "exit_rate": 6.6,
+   "net": 1.4,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和6年上半期",
+   "industry": "卸売業・小売業",
+   "worker_type": "一般労働者",
+   "entry_rate": 6.7,
+   "exit_rate": 6.5,
+   "net": 0.2,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和6年上半期",
+   "industry": "建設業",
+   "worker_type": "一般労働者",
+   "entry_rate": 7.4,
+   "exit_rate": 6.1,
+   "net": 1.3,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和6年上半期",
+   "industry": "情報通信業",
+   "worker_type": "一般労働者",
+   "entry_rate": 7.4,
+   "exit_rate": 5.5,
+   "net": 1.9,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和6年上半期",
+   "industry": "運輸業・郵便業",
+   "worker_type": "一般労働者",
+   "entry_rate": 5.4,
+   "exit_rate": 5.0,
+   "net": 0.4,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和6年上半期",
+   "industry": "製造業",
+   "worker_type": "一般労働者",
+   "entry_rate": 5.2,
+   "exit_rate": 4.9,
+   "net": 0.3,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和6年上半期",
+   "industry": "金融業・保険業",
+   "worker_type": "一般労働者",
+   "entry_rate": 6.0,
+   "exit_rate": 4.3,
+   "net": 1.7,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  }
+ ],
+ "wage_change": [
+  {
+   "period": "令和7年上半期",
+   "increased": 39.4,
+   "decreased": 31.5,
+   "unchanged": null,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和6年上半期",
+   "increased": 40.0,
+   "decreased": 28.9,
+   "unchanged": 29.5,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和6年 年計",
+   "increased": 40.5,
+   "decreased": 29.4,
+   "unchanged": null,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "period": "令和5年 年計",
+   "increased": 37.2,
+   "decreased": 32.4,
+   "unchanged": null,
+   "source": "厚生労働省 雇用動向調査",
+   "taken_at": "2026-08-27"
+  }
+ ],
+ "vacancy": [
+  {
+   "year": 2024,
+   "industry": "建設業",
+   "rate": 5.4,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "鉱業・採石業",
+   "rate": 4.6,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "宿泊業・飲食サービス業",
+   "rate": 4.4,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "生活関連サービス業・娯楽業",
+   "rate": 3.9,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "医療・福祉",
+   "rate": 3.2,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "運輸業・郵便業",
+   "rate": 3.1,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "サービス業",
+   "rate": 3.0,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "卸売業・小売業",
+   "rate": 2.9,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "産業計",
+   "rate": 2.9,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "不動産業",
+   "rate": 2.8,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "製造業",
+   "rate": 2.2,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "学術研究・専門技術",
+   "rate": 2.0,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "情報通信業",
+   "rate": 1.7,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "教育・学習支援業",
+   "rate": 1.4,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2024,
+   "industry": "金融業・保険業",
+   "rate": 0.7,
+   "source": "厚生労働省 雇用動向調査（未充足求人 148万1500人）",
+   "taken_at": "2026-08-27"
+  }
+ ],
+ "wage_gap": [
+  {
+   "year": 2026,
+   "segment": "全体",
+   "metric": "賃上げ率",
+   "value": 5.01,
+   "unit": "%",
+   "source": "連合 2026春闘最終集計",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "1000人以上",
+   "metric": "賃上げ率",
+   "value": 5.06,
+   "unit": "%",
+   "source": "連合 2026春闘最終集計",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "300人未満",
+   "metric": "賃上げ率",
+   "value": 4.69,
+   "unit": "%",
+   "source": "連合 2026春闘最終集計",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "100〜299人",
+   "metric": "賃上げ率",
+   "value": 4.83,
+   "unit": "%",
+   "source": "連合 2026春闘最終集計",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "99人以下",
+   "metric": "賃上げ率",
+   "value": 4.26,
+   "unit": "%",
+   "source": "連合 2026春闘最終集計",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "大企業",
+   "metric": "賃上げ実施予定率",
+   "value": 93.8,
+   "unit": "%",
+   "source": "東京商工リサーチ",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "中小企業",
+   "metric": "賃上げ実施予定率",
+   "value": 82.3,
+   "unit": "%",
+   "source": "東京商工リサーチ",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "全体",
+   "metric": "賃上げ実施予定率",
+   "value": 83.6,
+   "unit": "%",
+   "source": "東京商工リサーチ",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "segment": "労組あり",
+   "metric": "賃金改定率",
+   "value": 4.8,
+   "unit": "%",
+   "source": "厚労省 賃金引上げ等の実態に関する調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "segment": "労組なし",
+   "metric": "賃金改定率",
+   "value": 4.0,
+   "unit": "%",
+   "source": "厚労省 賃金引上げ等の実態に関する調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "segment": "労組あり",
+   "metric": "ベア実施率",
+   "value": 82.1,
+   "unit": "%",
+   "source": "厚労省 賃金引上げ等の実態に関する調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "segment": "労組なし",
+   "metric": "ベア実施率",
+   "value": 49.4,
+   "unit": "%",
+   "source": "厚労省 賃金引上げ等の実態に関する調査",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "地方・小規模",
+   "metric": "賃上げ率6%以上の割合",
+   "value": 12.9,
+   "unit": "%",
+   "source": "日本人材ニュース",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "地方・小規模",
+   "metric": "賃上げ率2%未満の割合",
+   "value": 26.7,
+   "unit": "%",
+   "source": "日本人材ニュース",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "全体",
+   "metric": "賃上げ率5%以上の割合",
+   "value": 25.9,
+   "unit": "%",
+   "source": "日本人材ニュース",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "全体",
+   "metric": "賃上げ率2%未満の割合",
+   "value": 20.7,
+   "unit": "%",
+   "source": "日本人材ニュース",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "segment": "中小企業",
+   "metric": "防衛的賃上げの割合",
+   "value": 60.1,
+   "unit": "%",
+   "source": "日本商工会議所",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "segment": "全体",
+   "metric": "賃上げ疲れを感じる企業",
+   "value": 77.0,
+   "unit": "%",
+   "source": "エデンレッドジャパン",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "segment": "全体",
+   "metric": "賃上げで企業収益が圧迫",
+   "value": 68.7,
+   "unit": "%",
+   "source": "エデンレッドジャパン",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "全体",
+   "metric": "持続的賃上げの見通しが立たない",
+   "value": 30.4,
+   "unit": "%",
+   "source": "東京商工リサーチ",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "製造業",
+   "metric": "賃上げ率5%以上の割合",
+   "value": 33.6,
+   "unit": "%",
+   "source": "東京商工リサーチ",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "運輸業",
+   "metric": "賃上げ率5%以上の割合",
+   "value": 40.5,
+   "unit": "%",
+   "source": "東京商工リサーチ",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2026,
+   "segment": "情報通信業",
+   "metric": "賃上げ率5%以上の割合",
+   "value": 39.6,
+   "unit": "%",
+   "source": "東京商工リサーチ",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "segment": "全体",
+   "metric": "人手不足倒産（件）",
+   "value": 397.0,
+   "unit": "件",
+   "source": "東京商工リサーチ",
+   "taken_at": "2026-08-27"
+  },
+  {
+   "year": 2025,
+   "segment": "資本金1000万円未満",
+   "metric": "人手不足倒産（件）",
+   "value": 251.0,
+   "unit": "件",
+   "source": "東京商工リサーチ",
+   "taken_at": "2026-08-27"
+  }
+ ]
+}
